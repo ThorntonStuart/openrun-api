@@ -16,7 +16,7 @@ class UserController extends Controller
     public function show()
     {
         return response([
-            'user' => new UserResource(Auth::user()),
+            'user' => new UserResource(Auth::user()->load('profile')),
         ]);
     }
 }

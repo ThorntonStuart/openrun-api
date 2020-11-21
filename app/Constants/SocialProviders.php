@@ -2,8 +2,8 @@
 
 namespace App\Constants;
 
-final class SocialServices
+class SocialProviders
 {
-    const FACEBOOK = 'facebook';
     const GOOGLE = 'google';
+    const FACEBOOK = 'facebook';
 }

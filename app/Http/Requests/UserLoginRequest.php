@@ -24,7 +24,9 @@ class UserLoginRequest extends FormRequest
     public function rules()
     {
         return [
-            'email' => 'required|email',
+            'email' => 'sometimes|email|required_with:password',
+            'password' => 'required_with:email',
+            'token' => 'sometimes|string|required_without:email,password',
         ];
     }
 }

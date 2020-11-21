@@ -20,7 +20,7 @@ class LoginController extends Controller
     }
 
     public function login(UserLoginRequest $request)
-    {
+    {        
         return $this->usersService->authenticateUser($request->input());
     }
 }

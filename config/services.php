@@ -33,12 +33,12 @@ return [
     'google' => [
         'client_id' => env('GOOGLE_CLIENT_ID'),
         'client_secret' => env('GOOGLE_CLIENT_SECRET'),
-        'redirect' => 'http://openrun-api.co.uk/auth/google/callback',
+        'redirect' => 'http://openrun-api.co.uk/v1/auth/login/google/callback',
     ],
     
     'facebook' => [
         'client_id' => env('FACEBOOK_CLIENT_ID'),
         'client_secret' => env('FACEBOOK_CLIENT_SECRET'),
-        'redirect' => 'http://openrun-api.co.uk/auth/facebook/callback',
+        'redirect' => 'http://openrun-api.co.uk/v1/auth/login/facebook/callback',
     ],
 ];
