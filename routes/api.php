@@ -5,6 +5,7 @@ use App\Http\Controllers\Api\Auth\RegistrationController;
 use App\Http\Controllers\Api\Auth\Social\FacebookSocialController;
 use App\Http\Controllers\Api\Auth\Social\GoogleSocialController;
 use App\Http\Controllers\Api\Auth\UserController;
+use App\Http\Controllers\Api\User\UpcomingEventsController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -29,4 +30,8 @@ Route::prefix('auth')->name('auth.')->group(function () {
     Route::get('/login/facebook/callback', [FacebookSocialController::class, 'handleProviderCallback']);
 
     Route::get('/user', [UserController::class, 'show'])->name('user.show')->middleware('auth:api');
+});
+
+Route::middleware('auth:api')->group(function () {
+    Route::get('/me/upcoming-events', [UpcomingEventsController::class, 'index']);
 });

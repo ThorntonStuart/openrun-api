@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Services\SocialUserResolverService;
 use Coderello\SocialGrant\Resolvers\SocialUserResolverInterface;
+use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -34,6 +35,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        
     }
 }
