@@ -58,4 +58,12 @@ class Event extends BaseModel
     {
         return $this->belongsToMany(User::class, 'event_user', 'event_id', 'user_id');
     }
+
+    /**
+     * @return BelongsTo
+     */
+    public function sport(): BelongsTo
+    {
+        return $this->belongsTo(Sport::class);
+    }
 }

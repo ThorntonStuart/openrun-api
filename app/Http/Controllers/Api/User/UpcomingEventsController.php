@@ -15,7 +15,9 @@ class UpcomingEventsController extends Controller
      */
     public function index(Request $request)
     {
-        $events = $request->user()->eventsAttending->sortBy('start_datetime');
+        $events = $request->user()->eventsAttending
+            ->load(['participants', 'sport'])
+            ->sortBy('start_datetime');
         
         return EventResource::collection($events);
     }

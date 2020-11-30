@@ -5,6 +5,7 @@ use App\Http\Controllers\Api\Auth\RegistrationController;
 use App\Http\Controllers\Api\Auth\Social\FacebookSocialController;
 use App\Http\Controllers\Api\Auth\Social\GoogleSocialController;
 use App\Http\Controllers\Api\Auth\UserController;
+use App\Http\Controllers\Api\User\MessagesController;
 use App\Http\Controllers\Api\User\UpcomingEventsController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -33,5 +34,10 @@ Route::prefix('auth')->name('auth.')->group(function () {
 });
 
 Route::middleware('auth:api')->group(function () {
-    Route::get('/me/upcoming-events', [UpcomingEventsController::class, 'index']);
+    Route::prefix('me')->group(function () {
+        Route::get('/upcoming-events', [UpcomingEventsController::class, 'index']);
+        
+        Route::get('/messages', [MessagesController::class, 'index']);
+        Route::post('/messages', [MessagesController::class, 'store']);
+    });
 });

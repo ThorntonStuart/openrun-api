@@ -26,8 +26,8 @@ class GameFactory extends Factory
         return [];
     }
 
-    public function withEvent()
+    public function withEvent(array $data = [])
     {
-        return Event::factory()->for(Game::factory(), 'eventable');
+        return Event::factory($data)->for(Game::factory(), 'eventable');
     }
 }

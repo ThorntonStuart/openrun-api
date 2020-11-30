@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Game;
 use App\Models\User;
+use App\Services\SportsService;
 use App\Services\UsersService;
 use Illuminate\Database\Seeder;
 
@@ -14,9 +15,13 @@ class TestDataSeeder extends Seeder
      */
     protected UsersService $usersService;
 
-    public function __construct(UsersService $usersService)
+    public function __construct(
+        UsersService $usersService,
+        SportsService $sportsService
+    )
     {
         $this->usersService = $usersService;
+        $this->sportsService = $sportsService;
     }
 
     /**
@@ -26,6 +31,9 @@ class TestDataSeeder extends Seeder
      */
     public function run()
     {
+        $sportBasketball = $this->sportsService->create(['name' => 'Basketball']);
+        $sportNetball = $this->sportsService->create(['name' => 'Netball']);
+
         $game = Game::factory()->withEvent()->create();
 
         $user = $this->usersService->createUser([
