@@ -1,5 +1,8 @@
 <?php
 
+use App\Broadcasting\ConversationChannel;
+use App\Models\Conversation;
+use App\Models\User;
 use Illuminate\Support\Facades\Broadcast;
 
 /*
@@ -13,6 +16,4 @@ use Illuminate\Support\Facades\Broadcast;
 |
 */
 
-Broadcast::channel('messages', function ($user) {
-    return Auth::check();
-});
+Broadcast::channel('conversations.{conversation}', ConversationChannel::class);

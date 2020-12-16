@@ -28,6 +28,7 @@ class EventFactory extends Factory
             'user_id' => User::factory(),
             'start_datetime' => now()->addHour(),
             'end_datetime' => now()->addHours(3),
+            'maximum_participants' => rand(10, 15),
         ];
     }
 }

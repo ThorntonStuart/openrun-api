@@ -5,6 +5,8 @@ use App\Http\Controllers\Api\Auth\RegistrationController;
 use App\Http\Controllers\Api\Auth\Social\FacebookSocialController;
 use App\Http\Controllers\Api\Auth\Social\GoogleSocialController;
 use App\Http\Controllers\Api\Auth\UserController;
+use App\Http\Controllers\Api\Search\UserSearchController;
+use App\Http\Controllers\Api\User\ConversationsController;
 use App\Http\Controllers\Api\User\MessagesController;
 use App\Http\Controllers\Api\User\UpcomingEventsController;
 use Illuminate\Http\Request;
@@ -36,8 +38,15 @@ Route::prefix('auth')->name('auth.')->group(function () {
 Route::middleware('auth:api')->group(function () {
     Route::prefix('me')->group(function () {
         Route::get('/upcoming-events', [UpcomingEventsController::class, 'index']);
+
+        Route::get('/conversations', [ConversationsController::class, 'index']);
+        Route::get('/conversations/{conversation}', [ConversationsController::class, 'show']);
         
         Route::get('/messages', [MessagesController::class, 'index']);
         Route::post('/messages', [MessagesController::class, 'store']);
+    });
+
+    Route::prefix('search')->group(function () {
+        Route::post('/users', UserSearchController::class);
     });
 });

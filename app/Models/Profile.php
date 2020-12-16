@@ -23,6 +23,6 @@ class Profile extends Model implements HasMedia
      */
     public function getProfileImageUrlAttribute(): string
     {
-        return $this->getFirstMediaUrl('profile_image');
+        return $this->getFirstMediaUrl('profile_image') ?: asset('images/user.png');
     }
 }

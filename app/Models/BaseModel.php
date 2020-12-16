@@ -9,4 +9,9 @@ use Illuminate\Database\Eloquent\Model;
 class BaseModel extends Model
 {
     use HasFactory, GeneratesUuid;
+
+    public function getRouteKeyName()
+    {
+        return 'uuid';
+    }
 }
