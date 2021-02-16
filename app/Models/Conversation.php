@@ -3,15 +3,18 @@
 namespace App\Models;
 
 use App\Models\Traits\RetrievesTableName;
+use App\Traits\UsesUuid;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class Conversation extends BaseModel
+class Conversation extends Model
 {
-    use HasFactory, RetrievesTableName;
+    use HasFactory,
+        RetrievesTableName,
+        UsesUuid;
 
     /**
      * The attributes that are mass assignable.

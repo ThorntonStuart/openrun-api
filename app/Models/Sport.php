@@ -2,14 +2,15 @@
 
 namespace App\Models;
 
-use App\Models\BaseModel;
+use App\Traits\UsesUuid;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
 
-class Sport extends BaseModel
+class Sport extends Model
 {
-    use HasFactory, HasSlug;
+    use HasFactory, HasSlug, UsesUuid;
 
     /**
      * The attributes that are mass assignable.

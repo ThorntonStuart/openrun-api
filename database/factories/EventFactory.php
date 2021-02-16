@@ -25,7 +25,7 @@ class EventFactory extends Factory
     {
         return [
             'title' => 'Test Event #' . rand(0, 500),
-            'user_id' => User::factory(),
+            'user_id' => User::factory()->withProfile(),
             'start_datetime' => now()->addHour(),
             'end_datetime' => now()->addHours(3),
             'maximum_participants' => rand(10, 15),
