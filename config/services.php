@@ -41,4 +41,8 @@ return [
         'client_secret' => env('FACEBOOK_CLIENT_SECRET'),
         'redirect' => 'http://openrun-api.co.uk/v1/auth/login/facebook/callback',
     ],
+
+    'firstclasspostcodes' => [
+        'api_key' => env('FIRSTCLASSPOSTCODES_API_KEY'),
+    ],
 ];
