@@ -2,19 +2,21 @@
 
 namespace App\Traits;
 
+use Dyrynda\Database\Support\GeneratesUuid;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Str;
 
 trait UsesUuid
 {
-    protected static function bootUsesUuid()
+    use GeneratesUuid;
+    
+    /**
+     * Get the route key for the resource.
+     *
+     * @return string
+     */
+    public function getRouteKeyName()
     {
-        static::creating(function ($model) {
-            if (Schema::hasColumn($model->getTable(), 'uuid')) {
-                if (!$model->uuid) {
-                    $model->uuid = (string) Str::uuid();
-                }
-            }
-        });
+        return 'uuid';
     }
 }

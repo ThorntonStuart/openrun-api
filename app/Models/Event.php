@@ -2,15 +2,16 @@
 
 namespace App\Models;
 
+use App\Traits\UsesUuid;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
 
-class Event extends BaseModel
+class Event extends Model
 {
-    use HasFactory;
+    use HasFactory, UsesUuid;
 
     /**
      * The attributes that are mass assignable.
@@ -23,6 +24,8 @@ class Event extends BaseModel
         'title',
         'start_datetime',
         'end_datetime',
+        'price',
+        'maximum_participants',
     ];
 
     /**
@@ -48,7 +51,7 @@ class Event extends BaseModel
      */
     public function host(): BelongsTo
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'user_id');
     }
 
     /**
@@ -65,5 +68,15 @@ class Event extends BaseModel
     public function sport(): BelongsTo
     {
         return $this->belongsTo(Sport::class);
+    }
+    
+    /**
+     * Fetch price formatted for GBP currency
+     *
+     * @return float
+     */
+    public function getPriceGbpAttribute(): float
+    {
+        return number_format($this->price / 100, 2);
     }
 }

@@ -14,8 +14,10 @@
         "doctrine/dbal": "^2.12",
         "dyrynda/laravel-model-uuid": "^6.3",
         "fideloper/proxy": "^4.2",
+        "firstclasspostcodes/firstclasspostcodes": "9999999-dev",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
+        "laravel/cashier": "^12.6",
         "laravel/framework": "^8.0",
         "laravel/horizon": "^5.6",
         "laravel/passport": "^10.0",
@@ -25,7 +27,8 @@
         "pusher/pusher-php-server": "^4.1",
         "spatie/laravel-medialibrary": "^8.0.0",
         "spatie/laravel-permission": "^3.17",
-        "spatie/laravel-sluggable": "^2.6"
+        "spatie/laravel-sluggable": "^2.6",
+        "vasildakov/postcode": "^1.1"
     },
     "require-dev": {
         "facade/ignition": "^2.3.6",
